@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import {JacobianPoint} from "./JacobianPoint.sol";
 import {ECPoint} from "./ECPoint.sol";
 import {Signature, Eip2098Signature} from "./Signature.sol";
-import {modMulInv} from "./Utils.sol";
+import {modMulInv, kGen} from "./Utils.sol";
 
 library Secp256k1 {
     uint256 constant GX = 0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798;

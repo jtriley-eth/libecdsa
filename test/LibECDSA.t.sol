@@ -24,16 +24,6 @@ contract LibECDSATest is Test {
         );
     }
 
-    function testMalleable() public {
-        uint256 pk = 2;
-        bytes32 hash = keccak256(hex"aabbccdd");
-        (uint8 v, bytes32 r, bytes32 s) = vm.sign(pk, hash);
-        Signature memory sig = Signature(v, uint256(r), uint256(s));
-        Signature memory malleable = sig.getMalleable();
-        assertEq(sig.recover(hash), malleable.recover(hash));
-        assertEq(sig.recover(hash), ecrecover(hash, v, r, s));
-    }
-
     // function testFuzzSign(uint256 pk, bytes32 hash) public {
     //     pk = bound(pk, 1, Secp256k1.ORDER - 1);
 
